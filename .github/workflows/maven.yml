@@ -29,8 +29,8 @@ jobs:
          local: /home/runner/work/maven-demo/maven-demo/target/
          remote: scp/jarfiles
          host: 13.58.71.107
-         username: root
-         password: redhat
+         username: ${{ secrets.USERNAME }}
+         password: ${{secrets.PASSWORD }}
     - name: run some commands
       uses: garygrossgarten/github-action-ssh@release
       with:
@@ -40,9 +40,5 @@ jobs:
           yum install zip* -y
           zip /zip/java.zip /jars/*
         host: 13.58.71.107
-        username: root
-        password: redhat
-          
-    
-
-          
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
