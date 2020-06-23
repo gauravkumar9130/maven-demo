@@ -31,5 +31,18 @@ jobs:
          host: 13.58.71.107
          username: root
          password: redhat
+    - name: run some commands
+      uses: garygrossgarten/github-action-ssh@release
+      with:
+        command: |
+          mkdir /jars /zip
+          cp -rvf /root/scp/jarfiles/*.jar /jars
+          yum install zip* -y
+          zip /zip/java.zip /jars/*
+        host: 13.58.71.107
+        username: root
+        password: redhat
+          
+    
 
           
